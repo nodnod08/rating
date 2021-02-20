@@ -19,6 +19,10 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
    $router->get('/rating/{id}', [ 'uses' => 'RatingsController@showUserRatings']);
 });
 
+$router->get('/key', function() {
+    return \Illuminate\Support\Str::random(32);
+});
+
 $router->post('/register', [ 'uses' => 'UserController@register']);
 $router->post('/login', [ 'uses' => 'UserController@login']);
 $router->post('/logout', [ 'uses' => 'UserController@logout']);
